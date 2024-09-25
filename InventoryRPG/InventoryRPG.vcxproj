@@ -127,7 +127,21 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="InventoryRPG.cpp" />
+    <ClCompile Include="accessory.cpp" />
+    <ClCompile Include="armor.cpp" />
+    <ClCompile Include="equipment.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="potion.cpp" />
+    <ClCompile Include="tool.cpp" />
+    <ClCompile Include="weapon.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="accessory.h" />
+    <ClInclude Include="armor.h" />
+    <ClInclude Include="equipment.h" />
+    <ClInclude Include="potion.h" />
+    <ClInclude Include="tool.h" />
+    <ClInclude Include="weapon.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
