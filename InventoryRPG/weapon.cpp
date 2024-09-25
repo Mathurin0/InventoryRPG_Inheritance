@@ -1,7 +1,7 @@
 #include "weapon.h"
 
 Weapon::Weapon(
-	int* equipmentCountEverCreated,
+	int equipmentCountEverCreated,
 	int damage, 
 	int range, 
 	string name,
@@ -20,7 +20,8 @@ Weapon::Weapon(
 			sellPrice, 
 			rarity, 
 			maxDurability,
-			isEquipped), 
+			isEquipped
+		), 
 		mRange(range),
 		mDamage(damage) {}
 

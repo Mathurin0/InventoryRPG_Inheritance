@@ -130,6 +130,7 @@
     <ClCompile Include="accessory.cpp" />
     <ClCompile Include="armor.cpp" />
     <ClCompile Include="equipment.cpp" />
+    <ClCompile Include="inventorySystem.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="potion.cpp" />
     <ClCompile Include="tool.cpp" />
@@ -139,6 +140,7 @@
     <ClInclude Include="accessory.h" />
     <ClInclude Include="armor.h" />
     <ClInclude Include="equipment.h" />
+    <ClInclude Include="inventorySystem.h" />
     <ClInclude Include="potion.h" />
     <ClInclude Include="tool.h" />
     <ClInclude Include="weapon.h" />

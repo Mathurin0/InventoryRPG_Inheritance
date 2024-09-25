@@ -1,9 +1,8 @@
 #include "equipment.h"
 
-Equipment::Equipment(int* equipmentCountEverCreated, string name, enum EquipmentType equipmentType, string description, int buyPrice, int sellPrice, Rarity rarity, float maxDurability, bool isEquipped)
+Equipment::Equipment(int equipmentCountEverCreated, string name, enum EquipmentType equipmentType, string description, int buyPrice, int sellPrice, Rarity rarity, float maxDurability, bool isEquipped)
 {
-	equipmentCountEverCreated++;
-	mId = *equipmentCountEverCreated;
+	mId = equipmentCountEverCreated;
 	mName = name;
 	mDescription = description;
 	mBuyPrice = buyPrice;
@@ -21,16 +20,6 @@ Equipment::~Equipment()
 
 int Equipment::GetID() {
 	return mId;
-}
-
-void Equipment::Buying()
-{
-	printf("You buyed %s for %i \n", mName.c_str(), mBuyPrice);
-}
-
-void Equipment::Selling()
-{
-	printf("You selled %s for %i \n", mName.c_str(), mSellPrice);
 }
 
 void Equipment::Repair()
@@ -54,4 +43,19 @@ void Equipment::UnEquip()
 void Equipment::DeconstructEquipment()
 {
 	printf("You have deconstructed %s, you got back some elements \n", mName.c_str());
+}
+
+int Equipment::GetBuyPrice()
+{
+	return mBuyPrice;
+}
+
+int Equipment::GetSellPrice()
+{
+	return mSellPrice;
+}
+
+string Equipment::GetName()
+{
+	return mName;
 }

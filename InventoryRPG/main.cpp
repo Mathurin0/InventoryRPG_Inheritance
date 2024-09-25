@@ -1,43 +1,35 @@
 #include "equipment.h"
 #include "weapon.h"
+#include "inventorySystem.h"
 #include <vector>
 #include <iostream>
 
-static int equipmentCountEverCreated = 0;
-static vector<Equipment*> inventory;
-
-
-void RemoveFromInventory(int id) {
-	for (int i = 0; i < inventory.size(); i++)
-	{
-		if (inventory[i]->GetID() == id) {
-			inventory[i]->~Equipment();
-			inventory.erase(inventory.begin() + i);
-		}
-	}
-}
 
 int main()
 {
-	Weapon firstWeapon = Weapon(&equipmentCountEverCreated, 10, 2, "Sword", "my super description", 1, 1, Common, 50);
-	Weapon secondWeapon = Weapon(&equipmentCountEverCreated, 10, 2, "Sword", "my super description", 1, 1, Common, 20);
+	InventorySystem inventorySystem = InventorySystem();
+
+	Weapon firstWeapon = Weapon(inventorySystem.GetEquipmentCountEverCreated(), 10, 2, "Sword", "my super description", 20, 10, Common, 50);
+	Weapon secondWeapon = Weapon(inventorySystem.GetEquipmentCountEverCreated(), 10, 2, "Sword", "my super description", 20, 10, Common, 20);
 
 
-	inventory.push_back(&firstWeapon);
-	inventory.push_back(&secondWeapon);
+	inventorySystem.AddToInventory(&firstWeapon);
+	inventorySystem.AddToInventory(&secondWeapon);
 
-	Weapon* myWeapon = dynamic_cast<Weapon*>(inventory[0]);
+	Weapon* myWeapon = dynamic_cast<Weapon*>(inventorySystem.GetInventoryItemFromID(1));
 
 	myWeapon->Repair();
 
-	Weapon* myOtherWeapon = dynamic_cast<Weapon*>(inventory[1]);
+	Weapon* myOtherWeapon = dynamic_cast<Weapon*>(inventorySystem.GetInventoryItemFromID(2));
 
 	myOtherWeapon->Repair();
 
-	printf("inventory size : %i \n", (int)inventory.size());
+	printf("inventory size : %i \n", inventorySystem.GetInventorySize());
 
 	myOtherWeapon->DeconstructEquipment();
-	RemoveFromInventory(myOtherWeapon->GetID());
+	inventorySystem.RemoveFromInventory(myOtherWeapon->GetID());
 
-	printf("inventory size : %i \n", (int)inventory.size());
+	printf("inventory size : %i \n", inventorySystem.GetInventorySize());
+
+	inventorySystem.Selling(myWeapon);
 }

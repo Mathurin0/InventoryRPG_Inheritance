@@ -23,7 +23,7 @@ class Equipment
 {
 public :
 	Equipment(
-		int* equipmentCountEverCreated,
+		int equipmentCountEverCreated,
 		string name, 
 		enum EquipmentType type,
 		string description = "", 
@@ -35,9 +35,11 @@ public :
 	);
 	~Equipment();
 
+	int GetBuyPrice();
+	int GetSellPrice();
+	string GetName();
 	int GetID();
-	void Buying();
-	void Selling();
+
 	void Equip();
 	void UnEquip();
 	void DeconstructEquipment();
