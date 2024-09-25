@@ -16,7 +16,7 @@ public:
 	Armor(
 		int equipmentCountEverCreated,
 		enum ArmorPiece armorPiece,
-		float protectionStregth,
+		float protectionStrength,
 		string name,
 		string description = "",
 		int buyPrice = 1,
@@ -27,7 +27,11 @@ public:
 	);
 	~Armor();
 
+	void ApplyProtection();
+
+	void Equip() override;
+
 private:
 	enum ArmorPiece mArmorPiece;
-	float mProtectionStregth;
+	float mProtectionStrength;
 };

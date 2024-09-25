@@ -3,8 +3,8 @@
 
 Armor::Armor(
 	int equipmentCountEverCreated, 
-	ArmorPiece armorPiece, 
-	float protectionStregth, 
+	enum ArmorPiece armorPiece, 
+	float protectionStrength, 
 	string name, 
 	string description, 
 	int buyPrice, 
@@ -24,8 +24,21 @@ Armor::Armor(
 			isEquipped
 		),
 		mArmorPiece(armorPiece),
-		mProtectionStregth(protectionStregth) {}
+		mProtectionStrength(protectionStrength) {}
 
 Armor::~Armor()
 {
+}
+
+void Armor::ApplyProtection()
+{
+	printf("Your potection strength is improved by %.0f \n", mProtectionStrength);
+}
+
+void Armor::Equip()
+{
+	std::cout << "you have equipped " << mName << " \n";
+	mIsEquipped = true;
+
+	ApplyProtection();
 }

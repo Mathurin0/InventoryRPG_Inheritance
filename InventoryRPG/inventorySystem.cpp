@@ -55,16 +55,16 @@ void InventorySystem::Buying(Equipment* equipment)
 	if (moneyCount >= buyPrice) {
 		moneyCount -= buyPrice;
 		AddToInventory(equipment);
-		printf("You buyed %s for %i \n", equipmentName.c_str(), buyPrice);
+		std::cout << "You bought " << equipmentName << " for " << buyPrice << " and now have " << moneyCount << " coins. \n";
 	}
 	else {
-		printf("You don't have enougth money to buy %s. You only have %i coins \n", equipmentName.c_str(), moneyCount);
+		std::cout << "You don't have enougth money to buy " << equipmentName << ".You only have " << moneyCount << " coins \n";
 	}
 }
 
 void InventorySystem::Selling(Equipment* equipment)
 {
 	moneyCount += equipment->GetSellPrice();
+	std::cout << "You sold " << equipment->GetName() << ". You have now " << moneyCount << " coins \n";
 	RemoveFromInventory(equipment->GetID());
-	printf("You sell %s. You have now %i coins \n", equipment->GetName().c_str(), moneyCount);
 }

@@ -40,11 +40,11 @@ public :
 	string GetName();
 	int GetID();
 
-	void Equip();
 	void UnEquip();
 	void DeconstructEquipment();
+	void Repair();
 
-	virtual void Repair();
+	virtual void Equip();
 
 protected :
 	int mId;

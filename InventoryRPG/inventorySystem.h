@@ -21,4 +21,3 @@ private :
 	int equipmentCountEverCreated = 0;
 	int moneyCount = 500;
 };
-

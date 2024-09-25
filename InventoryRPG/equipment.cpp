@@ -1,6 +1,15 @@
 #include "equipment.h"
 
-Equipment::Equipment(int equipmentCountEverCreated, string name, enum EquipmentType equipmentType, string description, int buyPrice, int sellPrice, Rarity rarity, float maxDurability, bool isEquipped)
+Equipment::Equipment(
+			int equipmentCountEverCreated, 
+			string name, 
+			enum EquipmentType type, 
+			string description, 
+			int buyPrice,	
+			int sellPrice, 
+			Rarity rarity, 
+			float maxDurability, 
+			bool isEquipped)
 {
 	mId = equipmentCountEverCreated;
 	mName = name;
@@ -11,7 +20,7 @@ Equipment::Equipment(int equipmentCountEverCreated, string name, enum EquipmentT
 	mCurrentDurability = maxDurability;
 	mMaxDurability = maxDurability;
 	mIsEquipped = isEquipped;
-	mType = equipmentType;
+	mType = type;
 }
 
 Equipment::~Equipment()
@@ -25,24 +34,24 @@ int Equipment::GetID() {
 void Equipment::Repair()
 {
 	mCurrentDurability = mMaxDurability;
-	printf("you have repaired %s and it's durability is now %.0f \n", mName.c_str(), mCurrentDurability);
+	std::cout << "you have repaired " << mName << " and it's durability is now " << mCurrentDurability <<" \n";
 }
 
 void Equipment::Equip()
 {
-	printf("you have equipped %s \n", mName.c_str());
+	std::cout << "you have equipped " << mName << " \n";
 	mIsEquipped = true;
 }
 
 void Equipment::UnEquip()
 {
-	printf("you have unequipped %s \n", mName.c_str());
+	std::cout << "you have unequipped " << mName << " \n";
 	mIsEquipped = false;
 }
 
 void Equipment::DeconstructEquipment()
 {
-	printf("You have deconstructed %s, you got back some elements \n", mName.c_str());
+	std::cout << "You have deconstructed " << mName << ", you got back some elements \n";
 }
 
 int Equipment::GetBuyPrice()

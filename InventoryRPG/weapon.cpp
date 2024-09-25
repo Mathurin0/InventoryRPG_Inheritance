@@ -33,3 +33,9 @@ void Weapon::DealDamage(int damage)
 {
 	printf("you have dealt %i damages \n", damage);
 }
+
+bool Weapon::DetectTarget()
+{
+	printf("Detecting targer in a range of %i", mRange);
+	return false;
+}
