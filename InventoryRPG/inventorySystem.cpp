@@ -13,7 +13,7 @@ void InventorySystem::RemoveFromInventory(int id)
 	for (int i = 0; i < inventory.size(); i++)
 	{
 		if (inventory[i]->GetID() == id) {
-			inventory[i]->~Equipment();
+			delete inventory[i];
 			inventory.erase(inventory.begin() + i);
 		}
 	}

@@ -12,98 +12,169 @@ InventorySystem* inventorySystem = nullptr;
 
 void GameManager::Init()
 {
+	int column = 0;
+	int maxColum = 5;
+	int row = 0;
+
+	int padding = 20;
+
+	const int maxButtonsNbr = 25;
+	const float buttonSize = 64;
+
+	for(int i = 0; i < maxButtonsNbr; i++)
+	{
+		Button button{};
+		button.mButtonRec = {column * (buttonSize + padding) + 65, row * (buttonSize + padding) + 150, buttonSize, buttonSize};
+		button.mId = i;
+		mButtons.push_back(button);
+
+		column += 1;
+
+		if(column >= maxColum)
+		{
+			row += 1;
+			column = 0;
+		}
+	}
+
 	inventorySystem = new InventorySystem();
 
-	Weapon ironSword = Weapon(
+	Weapon* ironSword = new Weapon(
 		inventorySystem->GetEquipmentCountEverCreated(), 
 		10, 
 		2, 
 		"Iron Sword",
-		LoadTexture("ressource/Weapon & Tool/Iron Sword.png"),
+		LoadTexture("ressource/Weapon&Tool/IronSword.png"),
 		"a simple iron sword.", 
 		20, 
 		10,
 		Common, 
 		50);
+
+
+	Weapon* bow = new Weapon(
+		inventorySystem->GetEquipmentCountEverCreated(),
+		10,
+		2,
+		"Bow",
+		LoadTexture("ressource/Weapon&Tool/Bow.png"),
+		"the bow of the hunter of evil spirits.",
+		20,
+		10,
+		Rare,
+		50);
 	
-	Armor ironChestplate = Armor(
+	Armor* ironChestplate = new Armor(
 		inventorySystem->GetEquipmentCountEverCreated(), 
 		Chest,
 		5, 
 		"Iron Chestplate", 
-		LoadTexture("ressource/Equipment/Iron Armor.png"),
+		LoadTexture("ressource/Equipment/IronArmor.png"),
 		"a solid iron chestplate.", 
 		20, 
 		10, 
 		Common, 
 		20);
 	
-	Accessory runeStone = Accessory(
+	Accessory* runeStone = new Accessory(
 		inventorySystem->GetEquipmentCountEverCreated(), 
 		.2, 
 		Speed, 
 		"Rune Stone",
-		LoadTexture("ressource/Misc/Rune Stone.png"),
+		LoadTexture("ressource/Misc/RuneStone.png"),
 		"a powerfull rune stone.",
 		20, 
 		10, 
 		Common, 
 		20);
 
-	Potion strengthPotion = Potion(
+	Potion* strengthPotion = new Potion(
 		inventorySystem->GetEquipmentCountEverCreated(),
 		.4,
 		StrengthEffect,
 		"Strength Potion",
-		LoadTexture("ressource/Potion/Green Potion 3.png"),
+		LoadTexture("ressource/Potion/GreenPotion3.png"),
 		"a very efficient potion.",
 		20,
 		10,
 		Common,
 		20);
 
-	Tool pickaxe = Tool(
+	Tool* pickaxe = new Tool(
 		inventorySystem->GetEquipmentCountEverCreated(),
 		3,
 		Pickaxe,
 		"Pickaxe",
-		LoadTexture("ressource/Weapon & Tool/Pickaxe.png"),
+		LoadTexture("ressource/Weapon&Tool/Pickaxe.png"),
 		"a very effective pickaxe.",
 		20,
 		10,
 		Common,
 		20);
 
-	inventorySystem->AddToInventory(&ironSword);
-	inventorySystem->AddToInventory(&ironChestplate);
-	inventorySystem->AddToInventory(&runeStone);
-	inventorySystem->AddToInventory(&strengthPotion);
-	inventorySystem->AddToInventory(&pickaxe);
+	inventorySystem->AddToInventory(ironSword);
+	inventorySystem->AddToInventory(bow);
+	inventorySystem->AddToInventory(ironChestplate);
+	inventorySystem->AddToInventory(runeStone);
+	inventorySystem->AddToInventory(strengthPotion);
+	inventorySystem->AddToInventory(pickaxe);
 }
 
 void GameManager::Update()
 {
+	//inventory with equipment
+	auto inventory = inventorySystem->GetContent();
 
+	for(int i = 0; i < mButtons.size(); i++)
+	{
+		Button& button = mButtons[i];
+
+		if(button.mId >= inventory.size())
+		{
+			continue;
+		}
+
+		Equipment* equipment = inventory[button.mId];
+
+		if(IsMouseButtonPressed(MOUSE_BUTTON_LEFT))
+		{
+			if(CheckCollisionPointRec(GetMousePosition(), button.mButtonRec))
+			{
+				mDescription = equipment->GetName();
+			}
+		}
+
+	}
 }
 
 void GameManager::Draw()
 {
-	int x = 0;
-	int y = 0;
+	//Description Box
+	DrawRectangleRounded({ static_cast< float >( GetScreenWidth() / 2),
+		100, 
+		static_cast< float >( GetScreenWidth() / 2 - 50 ), 
+		static_cast< float >( GetScreenHeight() - 200 ) },
+		0.2f,
+		0,
+		WHITE);
 
-	Rectangle source{ 0, 0, 32, 32 };
-	Rectangle destination{ x, y, 0, 0 };
+	DrawText(mDescription.c_str(), GetScreenWidth() / 2 + (GetScreenWidth() / 2 - 50) / 2 - MeasureText(mDescription.c_str(), 40) / 2, 150, 40, BLACK);
 
-	Vector2 origin{ 32 / 1.3f, 32 / 2};
+	//inventory with equipment
+	auto inventory = inventorySystem->GetContent();
 
-	for (Equipment* equipment : inventorySystem->GetContent())
+	for(int i = 0; i < mButtons.size(); i++)
 	{
-		//DrawTextureEx(equipment->GetTexture(), { (float)x, (float)y }, 0, 1, WHITE);
-		//DrawTexture(equipment->GetTexture(), x, y, WHITE);
-		DrawTexturePro(equipment->GetTexture(), { 0.0f, 0.0f, (float)equipment->GetTexture().width, (float)equipment->GetTexture().height },
-			{ GetScreenWidth() / 2.0f, GetScreenHeight() / 2.0f, (float)equipment->GetTexture().width, (float)equipment->GetTexture().height }, { (float)equipment->GetTexture().width / 2, (float)equipment->GetTexture().height / 2}, 0.0f, WHITE);
-		x += 64;
-		y += 64;
+		Button& button = mButtons[i];
+
+		DrawRectangleRounded(button.mButtonRec, 0.2f, 0, BROWN);
+
+		if(button.mId < inventory.size())
+		{
+			Equipment* equipement = inventory[button.mId];
+
+			DrawTextureEx(equipement->GetTexture(), { button.mButtonRec.x, button.mButtonRec.y }, 0, 2, WHITE);
+		}
 	}
 }
 
