@@ -24,6 +24,11 @@ void InventorySystem::AddToInventory(Equipment* equipment)
 	inventory.push_back(equipment);
 }
 
+vector<Equipment*> InventorySystem::GetContent()
+{
+	return inventory;
+}
+
 Equipment* InventorySystem::GetInventoryItemFromID(int id)
 {
 

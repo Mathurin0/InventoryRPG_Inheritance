@@ -16,6 +16,7 @@ public:
 		float statBuffStrenght,
 		enum StatType statType,
 		string name,
+		Texture2D image,
 		string description = "",
 		int buyPrice = 1,
 		int sellPrice = 1,

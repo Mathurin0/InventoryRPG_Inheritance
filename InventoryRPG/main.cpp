@@ -7,19 +7,29 @@
 #include "inventorySystem.h"
 #include <vector>
 #include <iostream>
+#include "raylib.h"
+#include "gameManager.h"
 
+void Load();
+void Update();
+void Draw();
+void Unload();
+
+GameManager gameManager;
 
 int main()
 {
-	// INVENTORY
+	Load();
+
+	while (!WindowShouldClose()) {
+		Update();
+		Draw();
+	}
+
+
+	/*// INVENTORY
 
 	printf("Inventory : \n");
-
-	InventorySystem inventorySystem = InventorySystem();
-
-	Weapon firstWeapon = Weapon(inventorySystem.GetEquipmentCountEverCreated(), 10, 2, "Sword", "my super description", 20, 10, Common, 50);
-	Weapon secondWeapon = Weapon(inventorySystem.GetEquipmentCountEverCreated(), 10, 2, "CombatAxe", "my super description", 20, 10, Common, 20);
-	Weapon thirdWeapon = Weapon(inventorySystem.GetEquipmentCountEverCreated(), 10, 2, "Polearm", "my super description", 20, 10, Common, 20);
 
 	inventorySystem.AddToInventory(&firstWeapon);
 	inventorySystem.AddToInventory(&secondWeapon);
@@ -123,5 +133,39 @@ int main()
 	myRepairTool->Repairing();
 
 
-	printf("\n");
+	printf("\n");*/
+
+	Unload();
+
+	return 0;
+}
+
+void Load()
+{
+	InitWindow(1080, 720, "Inventory RPG");
+	SetTargetFPS(60);
+
+	gameManager.Init();
+}
+
+void Update()
+{
+	gameManager.Update();
+}
+
+void Draw()
+{
+	BeginDrawing();
+
+	ClearBackground(BEIGE);
+	gameManager.Draw();
+
+	EndDrawing();
+}
+
+void Unload()
+{
+	gameManager.Unload();
+
+	CloseWindow();
 }

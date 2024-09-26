@@ -1,6 +1,7 @@
 #pragma once
 #include <iostream>
 #include <vector>
+#include "raylib.h"
 
 using namespace std;
 
@@ -26,6 +27,7 @@ public :
 		int equipmentCountEverCreated,
 		string name, 
 		enum EquipmentType type,
+		Texture2D image,
 		string description = "", 
 		int buyPrice = 1, 
 		int sellPrice = 1, 
@@ -39,6 +41,7 @@ public :
 	int GetSellPrice();
 	string GetName();
 	int GetID();
+	Texture2D GetTexture();
 
 	void UnEquip();
 	void DeconstructEquipment();
@@ -57,4 +60,5 @@ protected :
 	float mCurrentDurability;
 	float mMaxDurability;
 	enum EquipmentType mType;
+	Texture2D mTexture2D;
 };

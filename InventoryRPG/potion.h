@@ -16,6 +16,7 @@ public:
 		float effectStrength,
 		enum EffectType effectType,
 		string name,
+		Texture2D image,
 		string description = "",
 		int buyPrice = 1,
 		int sellPrice = 1,

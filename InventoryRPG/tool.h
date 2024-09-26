@@ -16,6 +16,7 @@ public:
 		int effectiveness,
 		enum ToolType toolType,
 		string name,
+		Texture2D image,
 		string description = "",
 		int buyPrice = 1,
 		int sellPrice = 1,

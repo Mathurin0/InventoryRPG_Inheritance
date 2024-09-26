@@ -4,6 +4,7 @@ Equipment::Equipment(
 			int equipmentCountEverCreated, 
 			string name, 
 			enum EquipmentType type, 
+			Texture2D image,
 			string description, 
 			int buyPrice,	
 			int sellPrice, 
@@ -14,6 +15,7 @@ Equipment::Equipment(
 	mId = equipmentCountEverCreated;
 	mName = name;
 	mDescription = description;
+	mTexture2D = image;
 	mBuyPrice = buyPrice;
 	mSellPrice = sellPrice;
 	mRarity = rarity;
@@ -29,6 +31,11 @@ Equipment::~Equipment()
 
 int Equipment::GetID() {
 	return mId;
+}
+
+Texture2D Equipment::GetTexture()
+{
+	return mTexture2D;
 }
 
 void Equipment::Repair()

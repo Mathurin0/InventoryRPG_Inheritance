@@ -104,10 +104,13 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>C:\Users\mathurin.ratie\Documents\Library\raylib-5.0_win64_msvc16\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>C:\Users\mathurin.ratie\Documents\Library\raylib-5.0_win64_msvc16\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>raylib.lib;winmm.lib;$(CoreLibraryDependencies);%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -130,6 +133,7 @@
     <ClCompile Include="accessory.cpp" />
     <ClCompile Include="armor.cpp" />
     <ClCompile Include="equipment.cpp" />
+    <ClCompile Include="gameManager.cpp" />
     <ClCompile Include="inventorySystem.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="potion.cpp" />
@@ -140,6 +144,7 @@
     <ClInclude Include="accessory.h" />
     <ClInclude Include="armor.h" />
     <ClInclude Include="equipment.h" />
+    <ClInclude Include="gameManager.h" />
     <ClInclude Include="inventorySystem.h" />
     <ClInclude Include="potion.h" />
     <ClInclude Include="tool.h" />
