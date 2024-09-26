@@ -19,7 +19,7 @@ public :
 	);
 	~Weapon();
 
-	void DealDamage(int);
+	void DealDamage();
 	bool DetectTarget();
 
 private :

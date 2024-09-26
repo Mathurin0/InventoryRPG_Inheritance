@@ -29,13 +29,13 @@ Weapon::~Weapon()
 {
 }
 
-void Weapon::DealDamage(int damage)
+void Weapon::DealDamage()
 {
-	printf("you have dealt %i damages \n", damage);
+	printf("you have dealt %i damages \n", mDamage);
 }
 
 bool Weapon::DetectTarget()
 {
-	printf("Detecting targer in a range of %i", mRange);
+	printf("Detecting targer in a range of %i \n", mRange);
 	return false;
 }

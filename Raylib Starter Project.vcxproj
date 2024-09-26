@@ -19,11 +19,12 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <VCProjectVersion>17.0</VCProjectVersion>
+    <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{2c8a3e26-4bb8-4ffc-8007-7ae4cca07101}</ProjectGuid>
-    <RootNamespace>InventoryRPG</RootNamespace>
+    <ProjectGuid>{792081f7-80ec-4aa8-8cf4-a08ed2feae12}</ProjectGuid>
+    <RootNamespace>RaylibStarterProject</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <ProjectName>InventoryRPG</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -76,10 +77,13 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(SolutionDir)\raylib;$(SolutionDir)\raylib\external;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>raylib.lib;opengl32.lib;kernel32.lib;user32.lib;gdi32.lib;winmm.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)\build\raylib\bin\$(Platform)\$(Configuration)\</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -104,10 +108,13 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(SolutionDir)\raylib;$(SolutionDir)\raylib\external;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>raylib.lib;opengl32.lib;kernel32.lib;user32.lib;gdi32.lib;winmm.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)\build\raylib\bin\$(Platform)\$(Configuration)\</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -127,23 +134,23 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="accessory.cpp" />
-    <ClCompile Include="armor.cpp" />
-    <ClCompile Include="equipment.cpp" />
-    <ClCompile Include="inventorySystem.cpp" />
-    <ClCompile Include="main.cpp" />
-    <ClCompile Include="potion.cpp" />
-    <ClCompile Include="tool.cpp" />
-    <ClCompile Include="weapon.cpp" />
+    <ClCompile Include="InventoryRPG\accessory.cpp" />
+    <ClCompile Include="InventoryRPG\armor.cpp" />
+    <ClCompile Include="InventoryRPG\equipment.cpp" />
+    <ClCompile Include="InventoryRPG\inventorySystem.cpp" />
+    <ClCompile Include="InventoryRPG\main.cpp" />
+    <ClCompile Include="InventoryRPG\potion.cpp" />
+    <ClCompile Include="InventoryRPG\tool.cpp" />
+    <ClCompile Include="InventoryRPG\weapon.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="accessory.h" />
-    <ClInclude Include="armor.h" />
-    <ClInclude Include="equipment.h" />
-    <ClInclude Include="inventorySystem.h" />
-    <ClInclude Include="potion.h" />
-    <ClInclude Include="tool.h" />
-    <ClInclude Include="weapon.h" />
+    <ClInclude Include="InventoryRPG\accessory.h" />
+    <ClInclude Include="InventoryRPG\armor.h" />
+    <ClInclude Include="InventoryRPG\equipment.h" />
+    <ClInclude Include="InventoryRPG\inventorySystem.h" />
+    <ClInclude Include="InventoryRPG\potion.h" />
+    <ClInclude Include="InventoryRPG\tool.h" />
+    <ClInclude Include="InventoryRPG\weapon.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
