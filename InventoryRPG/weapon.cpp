@@ -1,7 +1,7 @@
 #include "weapon.h"
 
 Weapon::Weapon(
-	int* equipmentCountEverCreated,
+	int equipmentCountEverCreated,
 	int damage, 
 	int range, 
 	string name,
@@ -20,7 +20,8 @@ Weapon::Weapon(
 			sellPrice, 
 			rarity, 
 			maxDurability,
-			isEquipped), 
+			isEquipped
+		), 
 		mRange(range),
 		mDamage(damage) {}
 
@@ -28,7 +29,13 @@ Weapon::~Weapon()
 {
 }
 
-void Weapon::DealDamage(int damage)
+void Weapon::DealDamage()
 {
-	printf("you have dealt %i damages \n", damage);
+	printf("you have dealt %i damages \n", mDamage);
+}
+
+bool Weapon::DetectTarget()
+{
+	printf("Detecting targer in a range of %i", mRange);
+	return false;
 }

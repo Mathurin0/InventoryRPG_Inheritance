@@ -6,7 +6,7 @@ class Weapon : public Equipment
 {
 public :
 	Weapon(
-		int* equipmentCountEverCreated,
+		int equipmentCountEverCreated,
 		int damage,
 		int range,
 		string name,
@@ -19,7 +19,8 @@ public :
 	);
 	~Weapon();
 
-	void DealDamage(int);
+	void DealDamage();
+	bool DetectTarget();
 
 private :
 	int mDamage;
