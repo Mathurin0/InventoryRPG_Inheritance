@@ -145,12 +145,23 @@ void GameManager::Update()
 				mDescription = equipment->GetDescription();
 			}
 		}
+		if(IsMouseButtonPressed(MOUSE_BUTTON_RIGHT))
+		{
+			if(CheckCollisionPointRec(GetMousePosition(), button.mButtonRec))
+			{
+				inventorySystem->Selling(equipment);
+			}
+		}
 
 	}
 }
 
 void GameManager::Draw()
 {
+	//Sell Text
+	
+	DrawText("Right click to sell.", 70, 100, 30, BLACK);
+
 	//Description Box
 	DrawRectangleRounded({ static_cast< float >( GetScreenWidth() / 2),
 		100, 
