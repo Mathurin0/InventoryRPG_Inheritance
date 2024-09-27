@@ -76,6 +76,18 @@ void GameManager::Init()
 		10, 
 		Common, 
 		20);
+
+	Armor* ironHelmet = new Armor(
+		inventorySystem->GetEquipmentCountEverCreated(),
+		Head,
+		2,
+		"Iron Helmet",
+		LoadTexture("ressource/Equipment/Iron Helmet.png"),
+		"A solid head protector.",
+		20,
+		10,
+		Common,
+		20);
 	
 	Accessory* runeStone = new Accessory(
 		inventorySystem->GetEquipmentCountEverCreated(), 
@@ -89,6 +101,18 @@ void GameManager::Init()
 		Common, 
 		20);
 
+	Accessory* book = new Accessory(
+		inventorySystem->GetEquipmentCountEverCreated(),
+		.5,
+		Strength,
+		"Book",
+		LoadTexture("ressource/Misc/Book 3.png"),
+		"An all knowing book.",
+		20,
+		10,
+		Common,
+		20);
+
 	Potion* strengthPotion = new Potion(
 		inventorySystem->GetEquipmentCountEverCreated(),
 		.4,
@@ -96,6 +120,30 @@ void GameManager::Init()
 		"Strength Potion",
 		LoadTexture("ressource/Potion/GreenPotion3.png"),
 		"A very efficient potion.",
+		20,
+		10,
+		Common,
+		20);
+
+	Potion* resistancePotion = new Potion(
+		inventorySystem->GetEquipmentCountEverCreated(),
+		.6,
+		ResistanceEffect,
+		"Resistance Potion",
+		LoadTexture("ressource/Potion/Red Potion 2.png"),
+		"An incredible potion.",
+		20,
+		10,
+		Common,
+		20);
+
+	Tool* hammer = new Tool(
+		inventorySystem->GetEquipmentCountEverCreated(),
+		10,
+		RepairTool,
+		"Hammer",
+		LoadTexture("ressource/Weapon&Tool/Hammer.png"),
+		"A solid hammer.",
 		20,
 		10,
 		Common,
@@ -116,8 +164,12 @@ void GameManager::Init()
 	inventorySystem->AddToInventory(ironSword);
 	inventorySystem->AddToInventory(bow);
 	inventorySystem->AddToInventory(ironChestplate);
+	inventorySystem->AddToInventory(ironHelmet);
 	inventorySystem->AddToInventory(runeStone);
+	inventorySystem->AddToInventory(book);
 	inventorySystem->AddToInventory(strengthPotion);
+	inventorySystem->AddToInventory(resistancePotion);
+	inventorySystem->AddToInventory(hammer);
 	inventorySystem->AddToInventory(pickaxe);
 }
 
