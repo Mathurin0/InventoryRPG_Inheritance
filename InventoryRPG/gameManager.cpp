@@ -134,7 +134,7 @@ void GameManager::Update()
 		{
 			continue;
 		}
-
+		
 		Equipment* equipment = inventory[button.mId];
 
 		if(IsMouseButtonPressed(MOUSE_BUTTON_LEFT))
@@ -143,6 +143,7 @@ void GameManager::Update()
 			{
 				mNameOfObject = equipment->GetName();
 				mDescription = equipment->GetDescription();
+				mExtendedDescription = equipment->GetExtendedDescription();
 			}
 		}
 		if(IsMouseButtonPressed(MOUSE_BUTTON_RIGHT))
@@ -173,6 +174,7 @@ void GameManager::Draw()
 
 	DrawText(mNameOfObject.c_str(), GetScreenWidth() / 2 + (GetScreenWidth() / 2 - 50) / 2 - MeasureText(mNameOfObject.c_str(), 40) / 2, 150, 40, RED);
 	DrawText(mDescription.c_str(), GetScreenWidth() / 2 + ( GetScreenWidth() / 2 - 50 ) / 2 - MeasureText(mDescription.c_str(), 30) / 2, 250, 30, BLACK);
+	DrawText(mExtendedDescription.c_str(), GetScreenWidth() / 2 + (GetScreenWidth() / 2 - 50) / 2 - MeasureText(mExtendedDescription.c_str(), 25) / 2, 350, 25, GRAY);
 
 	//inventory with equipment
 	auto inventory = inventorySystem->GetContent();

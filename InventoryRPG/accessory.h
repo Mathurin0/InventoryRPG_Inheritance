@@ -1,6 +1,7 @@
 #pragma once
 #include "equipment.h"
 #include <vector>
+#include <sstream>
 
 enum StatType {
 	Strength,
@@ -29,6 +30,8 @@ public:
 	void StatBuff();
 
 	void Equip() override;
+
+	string GetExtendedDescription() override;
 
 private:
 	float mStatBuffStrenght;

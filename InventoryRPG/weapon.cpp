@@ -41,3 +41,10 @@ bool Weapon::DetectTarget()
 	printf("Detecting targer in a range of %i\n", mRange);
 	return false;
 }
+
+string Weapon::GetExtendedDescription()
+{
+	std::ostringstream returnValue;
+	returnValue << "This is a Weapon ! \n\n\nDamages : " << mDamage << "\n\n\nRange : " << mRange;
+	return returnValue.str();
+}

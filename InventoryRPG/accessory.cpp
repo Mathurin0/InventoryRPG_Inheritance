@@ -57,3 +57,10 @@ void Accessory::Equip() {
 
 	StatBuff();
 }
+
+string Accessory::GetExtendedDescription()
+{
+	std::ostringstream returnValue;
+	returnValue << "This is an Accessory ! \n\n\nStat buff strength : " << mStatBuffStrenght << "\n\n\nStat type : " << mStatType;
+	return returnValue.str();
+}

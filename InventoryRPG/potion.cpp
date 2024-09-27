@@ -72,3 +72,10 @@ void Potion::Consume()
 
 	printf(" has been improved by %.0f%% \n", mEffectStrength * 100);
 }
+
+string Potion::GetExtendedDescription()
+{
+	std::ostringstream returnValue;
+	returnValue << "This is a Potion ! \n\n\nEffect strength : " << mEffectStrength << "\n\n\nEffect type : " << mEffectType;
+	return returnValue.str();
+}

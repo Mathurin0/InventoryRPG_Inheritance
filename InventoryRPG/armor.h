@@ -1,6 +1,7 @@
 #pragma once
 #include "equipment.h"
 #include <vector>
+#include <sstream>
 
 enum ArmorPiece {
 	Head,
@@ -31,6 +32,8 @@ public:
 	void ApplyProtection();
 
 	void Equip() override;
+
+	string GetExtendedDescription() override;
 
 private:
 	enum ArmorPiece mArmorPiece;

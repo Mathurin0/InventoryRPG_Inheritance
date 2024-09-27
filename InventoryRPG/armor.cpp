@@ -44,3 +44,10 @@ void Armor::Equip()
 
 	ApplyProtection();
 }
+
+string Armor::GetExtendedDescription()
+{
+	std::ostringstream returnValue;
+	returnValue << "This is an Armor ! \n\n\nArmor piece : " << mArmorPiece << "\n\n\nProtection strength : " << mProtectionStrength;
+	return returnValue.str();
+}

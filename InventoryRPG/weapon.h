@@ -1,6 +1,7 @@
 #pragma once
 #include "equipment.h"
 #include <vector>
+#include <sstream>
 
 class Weapon : public Equipment
 {
@@ -22,6 +23,8 @@ public :
 
 	void DealDamage();
 	bool DetectTarget();
+
+	string GetExtendedDescription() override;
 
 private :
 	int mDamage;

@@ -1,6 +1,7 @@
 #pragma once
 #include "equipment.h"
 #include <vector>
+#include <sstream>
 
 enum ToolType {
 	Axe,
@@ -27,6 +28,8 @@ public:
 	~Tool();
 
 	void Repairing();
+
+	string GetExtendedDescription() override;
 
 private:
 	int mEffectiveness;

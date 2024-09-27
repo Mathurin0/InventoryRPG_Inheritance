@@ -1,6 +1,7 @@
 #pragma once
 #include "equipment.h"
 #include <vector>
+#include <sstream>
 
 enum EffectType {
 	StrengthEffect,
@@ -28,6 +29,8 @@ public:
 
 	void Throw();
 	void Consume();
+
+	string GetExtendedDescription() override;
 
 private:
 	float mEffectStrength;

@@ -50,6 +50,8 @@ public :
 
 	virtual void Equip();
 
+	virtual string GetExtendedDescription() = 0;
+
 protected :
 	int mId;
 	string mName;
