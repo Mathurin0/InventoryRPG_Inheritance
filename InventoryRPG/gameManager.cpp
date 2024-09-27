@@ -55,8 +55,8 @@ void GameManager::Init()
 
 	Weapon* bow = new Weapon(
 		inventorySystem->GetEquipmentCountEverCreated(),
-		10,
-		2,
+		5,
+		20,
 		"Bow",
 		LoadTexture("ressource/Weapon&Tool/Bow.png"),
 		"Bow of evil spirits.",
