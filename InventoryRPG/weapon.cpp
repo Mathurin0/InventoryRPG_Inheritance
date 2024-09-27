@@ -38,6 +38,6 @@ void Weapon::DealDamage()
 
 bool Weapon::DetectTarget()
 {
-	printf("Detecting targer in a range of %i", mRange);
+	printf("Detecting targer in a range of %i\n", mRange);
 	return false;
 }

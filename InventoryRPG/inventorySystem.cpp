@@ -26,7 +26,7 @@ void InventorySystem::AddToInventory(Equipment* equipment)
 		inventory.push_back(equipment);
 	}
 	else {
-		printf("Your inventory is full.");
+		printf("Your inventory is full.\n");
 	}
 }
 

@@ -33,5 +33,5 @@ Tool::~Tool()
 
 void Tool::Repairing()
 {
-	printf("You are repairing an object with an effectiveness of %i", mEffectiveness);
+	printf("You are repairing an object with an effectiveness of %i\n", mEffectiveness);
 }
