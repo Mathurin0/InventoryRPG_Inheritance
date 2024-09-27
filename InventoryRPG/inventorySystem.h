@@ -21,6 +21,7 @@ private :
 	vector<Equipment*> inventory;
 	int equipmentCountEverCreated = 0;
 	int moneyCount = 500;
+	const int inventorySize = 25;
 };
 
 extern InventorySystem* inventorySystem;

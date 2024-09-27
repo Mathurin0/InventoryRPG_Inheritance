@@ -187,4 +187,10 @@ void ShowTestText()
 
 
 	printf("\n");
+
+
+	for (Equipment* equipment : inventorySystem->GetContent())
+	{
+		inventorySystem->RemoveFromInventory(equipment->GetID());
+	}
 }

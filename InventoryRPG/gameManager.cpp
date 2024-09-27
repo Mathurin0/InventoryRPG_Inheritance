@@ -183,5 +183,8 @@ void GameManager::Draw()
 
 void GameManager::Unload()
 {
-
+	for (Equipment* equipment : inventorySystem->GetContent())
+	{
+		inventorySystem->RemoveFromInventory(equipment->GetID());
+	}
 }

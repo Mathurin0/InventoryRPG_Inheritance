@@ -13,6 +13,7 @@ void InventorySystem::RemoveFromInventory(int id)
 	for (int i = 0; i < inventory.size(); i++)
 	{
 		if (inventory[i]->GetID() == id) {
+			UnloadTexture(inventory[i]->GetTexture());
 			delete inventory[i];
 			inventory.erase(inventory.begin() + i);
 		}
@@ -21,7 +22,12 @@ void InventorySystem::RemoveFromInventory(int id)
 
 void InventorySystem::AddToInventory(Equipment* equipment)
 {
-	inventory.push_back(equipment);
+	if (inventory.size() < 25) {
+		inventory.push_back(equipment);
+	}
+	else {
+		printf("Your inventory is full.");
+	}
 }
 
 vector<Equipment*> InventorySystem::GetContent()
