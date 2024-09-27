@@ -40,6 +40,7 @@ public :
 	int GetBuyPrice();
 	int GetSellPrice();
 	string GetName();
+	string GetDescription();
 	int GetID();
 	Texture2D GetTexture();
 

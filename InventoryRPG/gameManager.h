@@ -11,7 +11,8 @@ public :
 	void Draw();
 	void Unload();
 private:
-	std::string mDescription = "nameOfObject";
+	std::string mNameOfObject = "nameOfObject";
+	std::string mDescription = "My object is incredible.";
 	std::vector<Button> mButtons {};
 };
 

@@ -75,3 +75,8 @@ string Equipment::GetName()
 {
 	return mName;
 }
+
+string Equipment::GetDescription()
+{
+	return mDescription;
+}

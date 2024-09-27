@@ -6,6 +6,7 @@
 #include "accessory.h"
 #include "potion.h"
 #include "tool.h"
+
 #include "raylib.h"
 
 InventorySystem* inventorySystem = nullptr;
@@ -45,7 +46,7 @@ void GameManager::Init()
 		2, 
 		"Iron Sword",
 		LoadTexture("ressource/Weapon&Tool/IronSword.png"),
-		"a simple iron sword.", 
+		"A simple iron sword.", 
 		20, 
 		10,
 		Common, 
@@ -58,7 +59,7 @@ void GameManager::Init()
 		2,
 		"Bow",
 		LoadTexture("ressource/Weapon&Tool/Bow.png"),
-		"the bow of the hunter of evil spirits.",
+		"Bow of evil spirits.",
 		20,
 		10,
 		Rare,
@@ -70,7 +71,7 @@ void GameManager::Init()
 		5, 
 		"Iron Chestplate", 
 		LoadTexture("ressource/Equipment/IronArmor.png"),
-		"a solid iron chestplate.", 
+		"A solid iron chestplate.", 
 		20, 
 		10, 
 		Common, 
@@ -82,7 +83,7 @@ void GameManager::Init()
 		Speed, 
 		"Rune Stone",
 		LoadTexture("ressource/Misc/RuneStone.png"),
-		"a powerfull rune stone.",
+		"A powerfull rune stone.",
 		20, 
 		10, 
 		Common, 
@@ -94,7 +95,7 @@ void GameManager::Init()
 		StrengthEffect,
 		"Strength Potion",
 		LoadTexture("ressource/Potion/GreenPotion3.png"),
-		"a very efficient potion.",
+		"A very efficient potion.",
 		20,
 		10,
 		Common,
@@ -106,7 +107,7 @@ void GameManager::Init()
 		Pickaxe,
 		"Pickaxe",
 		LoadTexture("ressource/Weapon&Tool/Pickaxe.png"),
-		"a very effective pickaxe.",
+		"A very effective pickaxe.",
 		20,
 		10,
 		Common,
@@ -140,7 +141,8 @@ void GameManager::Update()
 		{
 			if(CheckCollisionPointRec(GetMousePosition(), button.mButtonRec))
 			{
-				mDescription = equipment->GetName();
+				mNameOfObject = equipment->GetName();
+				mDescription = equipment->GetDescription();
 			}
 		}
 
@@ -158,7 +160,8 @@ void GameManager::Draw()
 		0,
 		WHITE);
 
-	DrawText(mDescription.c_str(), GetScreenWidth() / 2 + (GetScreenWidth() / 2 - 50) / 2 - MeasureText(mDescription.c_str(), 40) / 2, 150, 40, BLACK);
+	DrawText(mNameOfObject.c_str(), GetScreenWidth() / 2 + (GetScreenWidth() / 2 - 50) / 2 - MeasureText(mNameOfObject.c_str(), 40) / 2, 150, 40, RED);
+	DrawText(mDescription.c_str(), GetScreenWidth() / 2 + ( GetScreenWidth() / 2 - 50 ) / 2 - MeasureText(mDescription.c_str(), 30) / 2, 250, 30, BLACK);
 
 	//inventory with equipment
 	auto inventory = inventorySystem->GetContent();
